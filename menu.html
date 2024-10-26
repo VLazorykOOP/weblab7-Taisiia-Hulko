@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Гулько Таїсія">
+    <meta name="description" content="Меню сайту">
+    <title>Меню</title>
+    <link rel="stylesheet" href="css/mycss.css" charset="UTF-8" title="Меню стиль">
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+    <script>
+        function handleClick(element) {
+            alert("Ви натиснули на " + element.tagName);
+            element.style.color = "red"; // Зміна кольору тексту
+        }
+
+        function handleMouseOver(element) {
+            element.classList.add("highlight"); // Додаємо клас для підсвічування
+        }
+
+        function handleMouseOut(element) {
+            element.classList.remove("highlight"); // Видаляємо клас для підсвічування
+        }
+    </script>
+</head>
+<body>
+
+    <nav id="main-nav" title="Головне меню">
+        <ul>
+           <li style="display: inline; margin-right: 10px;"><a href="menu.html" id="menu-link">Меню сайту</a></li>
+           <li style="display: inline; margin-right: 10px;"><a href="index.html" title="Сторінка автора" dir="ltr" rel="author" id="author-link">Сторінка автора</a></li>
+           <li style="display: inline; margin-right: 10px;"><a href="company.html" title="Про компанію" dir="ltr" rel="about" id="company-link">Про компанію</a></li>
+           <li style="display: inline; margin-right: 10px;"><a href="news.html" title="Новини компанії" dir="ltr" rel="news" id="news-link">Новини</a></li>
+           <li style="display: inline; margin-right: 10px;"><a href="page.html" title="Інформація про продукцію" dir="ltr" rel="news" id="product-link">Інформація про продукцію</a></li>
+           <li style="display: inline; margin-right: 10px;"><a href="table.html">Наша продукція</a></li>
+           <li style="display: inline; margin-right: 10px;"><a href="form.html">Форма для продукції</a></li>
+          </ul>
+    </nav>
+
+    <main id="main-content">
+        <h1 align="center" title="Меню сайту" 
+            onclick="handleClick(this)" 
+            onmouseover="handleMouseOver(this)" 
+            onmouseout="handleMouseOut(this)">Меню сайту</h1>
+      
+        <marquee width="100%" bgcolor="#f0f0f0" truespeed="true" style="border:1px solid #000;" height="50">
+            Ласкаво просимо на наш сайт! Вивчайте наші продукти та останні новини компанії.
+        </marquee>
+
+        <p align="justify">Оберіть сторінку для перегляду</p>
+
+        <ul class="vertical-links" compact>
+            <li><a href="index.html" title="Сторінка автора" id="author-link">Сторінка автора</a></li>
+            <li><a href="company.html" title="Про компанію" id="company-link">Про компанію</a></li>
+            <li><a href="news.html" title="Новини компанії" id="news-link">Новини</a></li>
+            <li><a href="page.html" title="Інформація про продукцію" id="product-link">Інформація про продукцію</a></li>
+            <li><a href="menu.html" title="Меню сайту" id="menu-link">Меню сайту</a></li>
+        </ul>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Гулько Таїсія">
+    <meta name="description" content="Форма для продукції">
+    <title>Форма для продукції</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+      /* Стилі для загального оформлення тіла сторінки */
+      body {
+          font-family: 'Lucida Sans Unicode', 'Gill Sans', 'Arial Narrow Bold', 'Lucida Sans Regular', sans-serif; /* Визначає шрифт */
+          font-weight: 400; /* Вага шрифту */
+          font-size-adjust: 0.5; /* Налаштування пропорцій шрифту */
+          font-variant: small-caps; /* Маленькі великі літери */
+          font-stretch: extra-condensed; /* Витягнуте зображення шрифту */
+      }
+  
+      /* Стилі для заголовків h1, h2, h3 */
+      h1, h2, h3 {
+          text-align: center; /* Вирівнювання тексту по центру */
+          text-decoration: underline; /* Підкреслення тексту */
+          text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 2px; /* Тінь для тексту */
+          word-spacing: 0.5em; /* Відстань між словами */
+          white-space: pre; /* Зберігати пробіли */
+      }
+  
+      /* Стилі для кнопок */
+      button {
+          background-color: #4CAF50; /* Колір фону кнопки */
+          color: white; /* Колір тексту кнопки */
+          border: none; /* Без рамки */
+          padding: 10px 20px; /* Внутрішні відступи */
+          text-align: center; /* Вирівнювання тексту по центру */
+          text-decoration: none; /* Без підкреслення */
+          display: inline-block; /* Відображення кнопки в рядку */
+          margin: 4px 2px; /* Відступи навколо кнопки */
+          cursor: pointer; /* Вказівник для курсору при наведенні */
+          border-radius: 5px; /* Закруглені кути кнопки */
+      }
+  
+      /* Стилі для кнопки при наведенні */
+      button:hover {
+          background-color: #45a049; /* Колір фону кнопки при наведенні */
+      }
+  
+      /* Стилі для форм */
+      form {
+          max-width: 500px; /* Максимальна ширина форми */
+          margin: 0 auto; /* Центрування форми */
+      }
+  
+      /* Стилі для групи елементів форми */
+      .form-group {
+          display: flex; /* Використання Flexbox для вирівнювання елементів */
+          justify-content: space-between; /* Простір між елементами */
+          align-items: center; /* Вирівнювання елементів по вертикалі */
+          margin-bottom: 10px; /* Відступ знизу */
+      }
+  
+      /* Стилі для етикеток у групах форми */
+      .form-group label {
+          flex-basis: 40%; /* Основна ширина етикеток */
+          text-align: right; /* Вирівнювання тексту етикеток праворуч */
+          margin-right: 10px; /* Відступ справа */
+      }
+  
+      /* Стилі для полів введення, списків та текстових областей у групах форми */
+      .form-group input, 
+      .form-group select, 
+      .form-group textarea {
+          flex-basis: 60%; /* Основна ширина полів введення */
+      }
+  
+      /* Стилі для текстових областей */
+      .form-group textarea {
+          width: 100%; /* Ширина текстових областей */
+      }
+  
+      /* Стилі для полів fieldset */
+      fieldset {
+          max-width: 500px; /* Максимальна ширина поля */
+          margin: 20px auto; /* Відступи з верхньої та нижньої сторін, центроване */
+          border: 1px solid #ccc; /* Рамка поля */
+          padding: 10px; /* Внутрішні відступи */
+      }
+  
+      /* Стилі для легенди в полях */
+      legend {
+          font-weight: bold; /* Жирний шрифт для легенди */
+      }
+  </style>
+  
+</head>
+<body>
+  
+    <nav id="main-nav">
+      <ul>
+        <li style="display: inline; margin-right: 10px;"><a href="menu.html">Меню сайту</a></li>
+        <li style="display: inline; margin-right: 10px;"><a href="index.html" title="Сторінка автора" dir="ltr" rel="author">Сторінка автора</a></li>
+        <li style="display: inline; margin-right: 10px;"><a href="company.html" title="Про компанію" dir="ltr" rel="about">Про компанію</a></li>
+        <li style="display: inline; margin-right: 10px;"><a href="news.html" title="Новини компанії" dir="ltr" rel="news">Новини</a></li>
+        <li style="display: inline; margin-right: 10px;"><a href="page.html" title="Інформація про продукцію" dir="ltr" rel="news">Інформація про продукцію</a></li>
+        <li style="display: inline; margin-right: 10px;"><a href="table.html">Наша продукція</a></li>
+        <li style="display: inline; margin-right: 10px;"><a href="form.html">Форма для продукції</a></li>
+     </ul>
+    </nav>
+
+    <h1 align="center" title="Форма для продукції">Форма для введення інформації про продукцію</h1>
+
+    <section>
+      <fieldset> 
+        <legend>Інформація про товар</legend>
+        <form action="#" method="POST" id="product-form" name="productForm" target="_self" autocomplete="on" accept-charset="UTF-8" dir="ltr">
+           
+          <!-- Поле для введення назви товару -->
+            <div class="form-group">
+                <label for="product-name" class="form-label">Назва товару:</label>
+                <input type="text" id="product-name" name="product-name" dir="ltr" placeholder="Введіть назву товару" required autofocus>
+            </div>
+
+            <!-- Випадковий список для вибору категорії товару -->
+            <div class="form-group">
+                <label for="product-category" class="form-label">Категорія:</label>
+                <select id="product-category" name="product-category" required class="form-select" lang="uk" title="Виберіть категорію" autofocus>
+                    <option value="дивани" id="option-sofas" label="Дивани">Дивани</option>
+                    <option value="шафи" id="option-cabinets" label="Шафи">Шафи</option>
+                    <option value="ліжка" id="option-beds" label="Ліжка">Ліжка</option>
+                    <option value="стільці" id="option-chairs" label="Стільці">Стільці</option>
+                </select>
+            </div>
+
+            <!-- Поле для введення рейтингу товару -->
+            <div class="form-group">
+                <label for="product-rating" class="form-label">Рейтинг:</label>
+                <input type="number" id="product-rating" name="product-rating" dir="ltr" min="0" max="5" step="0.1" required>
+            </div>
+
+            <!-- Поле для введення ціни товару -->
+            <div class="form-group">
+                <label for="product-price" class="form-label">Ціна:</label>
+                <input type="number" id="product-price" name="product-price" dir="ltr" placeholder="Ціна у грн" required step="1.0" max="10000">
+            </div>
+
+            <!-- Поле для введення матеріалу товару -->
+            <div class="form-group">
+                <label for="product-material" class="form-label">Матеріал:</label>
+                <input type="text" id="product-material" name="product-material" dir="ltr" placeholder="Введіть матеріал" required>
+            </div>
+
+            <!-- Поле для введення постачальника товару -->
+            <div class="form-group">
+                <label for="product-supplier" class="form-label">Постачальник:</label>
+                <input type="text" id="product-supplier" name="product-supplier" dir="ltr" placeholder="Введіть назву постачальника" required>
+            </div>
+
+            <!-- Поле для завантаження зображення товару -->
+            <div class="form-group">
+                <label for="product-image" class="form-label">Завантажити зображення:</label>
+                <input type="file" id="product-image" name="product-image" accept="image/*" multiple>
+            </div>
+
+            <!-- Поле для введення опису товару -->
+            <div class="form-group">
+                <label for="product-features" class="form-label">Опис товару:</label>
+                <textarea id="product-features" name="product-features" rows="4" dir="ltr" placeholder="Опис особливостей" required title="Опис товару" lang="uk"></textarea>
+            </div>
+
+            <!-- Кнопка для відправлення форми -->
+            <button type="submit" name="submit" formtarget="_self" autofocus>Відправити інформацію</button>
+            <!-- Кнопка для скасування введених даних -->
+            <button type="button" onclick="resetForm()">Скасувати</button>
+            <!-- Кнопка для редагування форми -->
+            <button type="button" onclick="editForm()">Редагувати</button>
+        </form>
+      </fieldset>
+ 
+        <fieldset>
+            <legend>Додаткова інформація</legend>
+            <!-- Індикація для відображення значення -->
+            <meter value="0.7" min="0" max="1" optimum="0.8" class="form-meter" dir="ltr"></meter>
+            <details lang="uk" title="Деталі про форму" open>
+                <summary>Додаткові деталі</summary>
+                <!-- Опис форми та її призначення -->
+                Ця форма допомагає клієнтам швидко та зручно залишати інформацію про меблі, такі як дивани, ліжка, стільці або шафи. Завдяки цьому ви можете легко додати товар до каталогу та забезпечити детальний опис його характеристик.
+              </details>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Відгуки про товар</legend>
+            <!-- Поле для введення відгуків про товар -->
+            <textarea id="product-reviews" name="product-reviews" rows="4" cols="50" placeholder="Поділіться думкою про нашу продукцію!" style="resize: none;"></textarea>
+        </fieldset>
+
+    </section>
+
+    <script>
+        function resetForm() {
+            document.getElementById("product-form").reset();
+        }
+
+        function editForm() {
+            alert("Редагуйте свою інформацію.");
+        }
+    </script>
+</body>
+</html>

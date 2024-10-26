@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Гулько Таїсія">
+    <meta name="description" content="Інформація про компанію">
+    <title>Про компанію</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        function toggleBold(event) {
+            event.target.style.fontWeight = "bold"; // Текст стає жирним
+        }
+
+        function resetBold(event) {
+            event.target.style.fontWeight = "normal"; // Текст повертається до звичайного
+        }
+    </script>
+</head>
+<body>
+
+  <nav>
+    <ul style="list-style-type: none; margin: 0; padding: 0; overflow: hidden;">
+        <li style="display: inline; margin-right: 10px;"><a href="menu.html">Меню сайту</a></li>
+        <li style="display: inline; margin-right: 10px;"><a href="index.html">Сторінка автора</a></li>
+        <li style="display: inline; margin-right: 10px;"><a href="company.html">Про компанію</a></li>
+        <li style="display: inline; margin-right: 10px;"><a href="news.html">Новини</a></li>
+        <li style="display: inline; margin-right: 10px;"><a href="page.html">Інформація про продукцію</a></li>
+        <li style="display: inline; margin-right: 10px;"><a href="table.html">Наша продукція</a></li>
+        <li style="display: inline; margin-right: 10px;"><a href="form.html">Форма для продукції</a></li>
+    </ul>
+</nav>
+
+    <h1 align="center" title="Про компанію" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Про компанію</h1>
+    <p align="justify" title="Інформація про фірму" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">
+        Наша компанія "Меблевий Світ" займається виробництвом меблів найвищої якості. Ми використовуємо тільки натуральні матеріали від перевірених постачальників.
+    </p>
+
+    <hr>
+
+    <h2 align="center" title="Виробництво меблів" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Виробництво меблів</h2>
+
+    <h3 align="left" title="Дивани" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Дивани</h3>
+    <p align="justify" title="Інформація про дивани" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">
+        <big>Марка</big>: ComfortMax <br class="br-style">
+        <span class="highlight" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Матеріал</span>: Натуральна шкіра, екологічно чиста деревина (дуб, бук) <br class="br-style">
+        <span class="highlight" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Постачальник</span>: EcoWood Supply <br class="br-style">
+        <span class="highlight" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Ціна</span>: від 15 000 грн
+    </p>
+
+    <h3 align="left" title="Шафи-купе" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Шафи-купе</h3>
+    <p align="justify" title="Інформація про шафи-купе" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">
+        <big>Марка</big>: SmartSpace <br class="br-style">
+        <span class="highlight" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Матеріал</span>: ЛДСП (ламітований ДСП), дзеркала з покриттям проти подряпин <br class="br-style">
+        <span class="highlight" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Постачальник</span>: LaminatePro <br class="br-style">
+        <span class="highlight" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Ціна</span>: від 12 500 грн
+    </p>
+
+    <h3 align="left" title="Кухонні гарнітури" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Кухонні гарнітури</h3>
+    <p align="justify" title="Інформація про кухонні гарнітури" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">
+        <big>Марка</big>: CuisineArt <br class="br-style">
+        <span class="highlight" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Матеріал</span>: МДФ, акрил, загартоване скло <br class="br-style">
+        <span class="highlight" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Постачальник</span>: TopGlass & MDF <br class="br-style">
+        <span class="highlight" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Ціна</span>: від 20 000 грн
+    </p>
+
+    <h3 align="left" title="Ліжка" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Ліжка</h3>
+    <p align="justify" title="Інформація про ліжка" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">
+        <big>Марка</big>: DreamLine <br class="br-style">
+        <span class="highlight" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Матеріал</span>: Масив дерева (сосна, ясен), текстиль, метал <br class="br-style">
+        <span class="highlight" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Постачальник</span>: NatureWood <br class="br-style">
+        <span class="highlight" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Ціна</span>: від 10 000 грн
+    </p>
+
+    <h3 align="left" title="Офісні столи" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Офісні столи</h3>
+    <p align="justify" title="Інформація про офісні столи" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">
+        <big>Марка</big>: OfficePro <br class="br-style">
+        <span class="highlight" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Матеріал</span>: Металевий каркас, ЛДСП <br class="br-style">
+        <span class="highlight" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Постачальник</span>: MetalWood Co. <br class="br-style">
+        <span class="highlight" onmouseout="resetBold(event)" onmouseover="toggleBold(event)">Ціна</span>: від 8 000 грн
+    </p>
+
+</body>
+</html>

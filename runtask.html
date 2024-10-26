@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Гулько Таїсія">
+    <meta name="description" content="Форма для зміни вмісту фреймів">
+    <title>Форма зміни фреймів</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        iframe {
+            border: 1px solid #ccc;
+            width: 300px;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 align="center">Зміна вмісту фреймів</h1>
+
+    <iframe id="frame1" src="about:blank"></iframe>
+    <iframe id="frame2" src="about:blank"></iframe>
+
+    <form id="myForm">
+        <button type="button" onclick="runTask()">Run Task</button>
+        <textarea id="output" rows="4" cols="50" placeholder="Результат..."></textarea>
+    </form>
+
+    <script>
+        function runTask() {
+            const frame1 = document.getElementById('frame1');
+            const frame2 = document.getElementById('frame2');
+
+            frame1.contentWindow.document.write("<h2>Фрейм 1</h2><p>Це вміст першого фрейму.</p>");
+            frame2.contentWindow.document.write("<h2>Фрейм 2</h2><p>Це вміст другого фрейму.</p>");
+
+            document.getElementById('output').value = "Змінював вміст двох другорядних фреймів.";
+           
+            console.log("Змінював вміст двох другорядних фреймів.");
+          
+        }
+    </script>
+
+</body>
+</html>

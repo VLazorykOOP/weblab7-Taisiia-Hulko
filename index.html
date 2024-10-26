@@ -1,12 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Script-Type" content="text/javascript" >
-    <title>Lab7</title>
+    <meta name="author" content="Гулько Таїсія">
+    <meta name="description" content="Особиста сторінка розробника веб-проекту">
+    <title>Сторінка автора</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        function handleClick() {
+            alert("Ви натиснули на заголовок!");
+        }
+        
+        function handleMouseOver() {
+            console.log("Курсор над заголовком!");
+            alert("Вітаю! Ви наводите курсор на заголовок.");
+        }
+        
+        function handleMouseOut() {
+            console.log("Курсор покинув заголовок!");
+            alert("Курсор покинув заголовок.");
+        }
+        
+        function handleResize() {
+            console.log("Розмір вікна змінився!");
+            alert("Вікно було змінено!");
+        }
+        
+        function handleOffline() {
+            console.log("Втрата підключення до мережі!");
+            alert("Ви зараз в офлайн режимі.");
+        }
+        
+        function handleOnline() {
+            console.log("Підключення до мережі відновлено!");
+            alert("Ви знову в онлайн режимі.");
+        }
+
+        function handleDragStart(event) {
+            event.dataTransfer.setData("text/plain", event.target.id);
+            console.log("Перетаскування почато: " + event.target.id);
+        }
+
+        function handleDrop(event) {
+            event.preventDefault(); // запобігаємо стандартній поведінці
+            const data = event.dataTransfer.getData("text/plain");
+            alert("Елемент " + data + " був скинутий!");
+        }
+
+        function handleDragOver(event) {
+            event.preventDefault(); // дозволяємо скидання
+        }
+        
+        window.addEventListener('offline', handleOffline);
+        window.addEventListener('online', handleOnline);
+        window.addEventListener('resize', handleResize);
+    </script>
 </head>
 <body>
-    <h1> !!! Додайте свої сторінки сайту створені в лаб. роботах 1-6  </h1>
+
+    <nav>
+        <ul style="list-style-type: none; margin: 0; padding: 0; overflow: hidden;">
+            <li style="display: inline; margin-right: 10px;"><a href="menu.html">Меню сайту</a></li>
+            <li style="display: inline; margin-right: 10px;"><a href="index.html">Сторінка автора</a></li>
+            <li style="display: inline; margin-right: 10px;"><a href="company.html">Про компанію</a></li>
+            <li style="display: inline; margin-right: 10px;"><a href="news.html">Новини</a></li>
+            <li style="display: inline; margin-right: 10px;"><a href="page.html">Інформація про продукцію</a></li>
+            <li style="display: inline; margin-right: 10px;"><a href="table.html">Наша продукція</a></li>
+            <li style="display: inline; margin-right: 10px;"><a href="form.html">Форма для продукції</a></li>
+        </ul>
+    </nav>
+
+    <h1 align="center" style="color:blue;" title="Особиста сторінка" onclick="handleClick()" 
+        onmouseover="handleMouseOver()" onmouseout="handleMouseOut()">Особиста сторінка</h1>
+    
+    <p align="justify" style="font-size: 20px;" title="Про автора" id="draggable" draggable="true" ondragstart="handleDragStart(event)">
+        Перетягніть цей текст сюди!
+    </p>
+
+    <hr color="black" noshade size="2">
+
+    <div id="dropzone" style="border: 2px dashed black; padding: 20px; margin-top: 20px;" 
+        ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+        Скиньте сюди перетягнутий текст.
+    </div>
+
+    <p align="justify" style="font-size: 16px;">
+        Я давно зацікавлена дизайном інтер'єру та створенням зручних, функціональних меблів. Це привело мене до вивчення веб-дизайну, щоб мати можливість втілювати свої ідеї у цифровому просторі.
+    </p>
+
 </body>
 </html>

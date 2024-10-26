@@ -1,0 +1,146 @@
+/* Основні стилі для всього документа */
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f8f8f8;
+  margin: 0; 
+  padding: 0; 
+}
+
+/* Стилі для навігаційного меню */
+nav {
+  display: block;
+  position: relative;
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 15px;
+}
+
+nav a {
+  color: darkblue; /* Темно синій колір посилань */
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Стилі для заголовків */
+h1, h2, h3 {
+  color: blue; /* Заголовки залишаються синіми */
+}
+
+h1 {
+  color: green !important; /* Колір h1 з найвищим пріоритетом */
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  border-top-width: thin;
+  border-bottom-width: 2px;
+  border-left-style: solid;
+  border-left-color: green;
+}
+
+h3 {
+  border-bottom-style: ridge;
+  border-right-style: outset;
+  border-right-color: #333;
+  color: red; /* Заголовки h3 червоні */
+}
+
+/* Стилі для списків */
+ol {
+  margin: 20px 0;
+}
+
+ul.circle-list {
+  list-style-type: circle; /* Використання кружечків як маркерів */
+  margin: 20px 0;
+}
+
+/* Стилі для списків з визначеннями */
+dl {
+  margin: 20px 0;
+}
+
+dt {
+  font-weight: bold;
+  color: #555;
+}
+
+dd {
+  margin: 0 0 10px 0;
+  color: #666;
+}
+
+/* Стилі для блоків з інформацією */
+.info-block {
+  font-size: 16px; /* Однаковий розмір шрифту */
+  font-weight: bold; /* Жирний текст */
+}
+
+/* Стилі для тексту в блоках 'Марка', 'Матеріал', 'Постачальник', 'Ціна' */
+.info-block .label {
+  font-size: 16px; /* Однаковий розмір шрифту */
+  font-weight: bold; /* Жирний текст */
+}
+
+.info-block .value {
+  font-size: 16px; /* Однаковий розмір шрифту */
+}
+
+/* Вирівнювання тексту в блоках */
+.info-block {
+  margin: 10px 0;
+}
+
+.info-block label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.info-block p {
+  margin: 0;
+}
+
+/* Стилі для маркера 'marquee' */
+marquee {
+  margin: 20px 0;
+}
+
+/* Основні стилі для футера */
+footer {
+  padding: 10px;
+  text-align: center;
+  background-color: #f0f0f0;
+  border-top: 1px solid #ddd;
+}
+
+table {
+  width: 100%; /* Встановлюємо ширину таблиці на 100% */
+  border: 1px solid black;
+  border-collapse: collapse;
+  border-spacing: 5px; /* Відстань між комірками (ігнорується з border-collapse: collapse) */
+  empty-cells: show; /* Показувати межі порожніх комірок */
+}
+th, td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+caption {
+  caption-side: top; /* Заголовок таблиці зверху */
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Task</title>
+    <script>
+        function arrayTask() {
+            // Отримання введеного користувачем тексту
+            const inputText = document.getElementById('arrayInput').value;
+
+            // Перетворення тексту в масив чисел
+            const arrayA = inputText.split(',').map(Number);
+
+            // Перевірка на коректність вводу
+            if (arrayA.some(isNaN)) {
+                alert("Введіть коректні числа, розділені комами.");
+                return;
+            }
+
+            // Обчислення суми на парних позиціях та добутку на непарних
+            let sumEvenPositions = 0;
+            let productOddPositions = 1;
+
+            arrayA.forEach((value, index) => {
+                if ((index + 1) % 2 === 0) { // парні позиції
+                    sumEvenPositions += value;
+                } else { // непарні позиції
+                    productOddPositions *= value;
+                }
+            });
+
+            // Виведення результатів
+            const resultText = `
+                Масив: ${arrayA.join(', ')}
+                Сума елементів на парних позиціях: ${sumEvenPositions}
+                Добуток елементів на непарних позиціях: ${productOddPositions}
+            `;
+
+            document.getElementById('result').value = resultText;
+        }
+    </script>
+</head>
+<body>
+    <h1>Завдання з масивом</h1>
+    <label for="arrayInput">Введіть елементи масиву, розділені комами:</label><br>
+    <input type="text" id="arrayInput" size="50"><br><br>
+    <button onclick="arrayTask()">Array Task</button>
+    <br><br>
+    <label for="result">Результат:</label><br>
+    <textarea id="result" rows="6" cols="50" readonly></textarea>
+</body>
+</html>

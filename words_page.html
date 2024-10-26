@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пошук інформації</title>
+    <script>
+        function searchInfo() {
+            const inputText = document.getElementById('inputText').value;
+
+            // Кількість слів
+            const wordCount = inputText.trim().split(/\s+/).filter(Boolean).length;
+
+            // Слова, що починаються з "п" і закінчуються на "я"
+            const wordsWithPAndYa = inputText.match(/\bп[а-я]*я\b/g) || [];
+
+            // Цифри
+            const digits = inputText.match(/\d/g) || [];
+
+            // Цілі числа
+            const integers = inputText.match(/\b\d+\b/g) || [];
+
+            // Виведення результатів
+            document.getElementById('result').innerHTML = `
+                <p>Кількість слів: ${wordCount}</p>
+                <p>Слова, що починаються з "п" і закінчуються на "я": ${wordsWithPAndYa.join(', ') || 'Немає'}</p>
+                <p>Цифри: ${digits.join(', ') || 'Немає'}</p>
+                <p>Цілі числа: ${integers.join(', ') || 'Немає'}</p>
+            `;
+        }
+    </script>
+</head>
+<body>
+    <h1>Форма пошуку інформації</h1>
+    <form onsubmit="event.preventDefault(); searchInfo();">
+        <label for="inputText">Введіть текст:</label><br>
+        <textarea id="inputText" rows="4" cols="50"></textarea><br><br>
+        <button type="submit">Пошуку інформації</button>
+    </form>
+    <div id="result"></div>
+</body>
+</html>

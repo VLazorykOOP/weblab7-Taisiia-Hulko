@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Малюнок</title>
+    <style>
+        canvas {
+            border: 1px solid black; /* Додаємо чорну рамку до canvas */
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Canvas Малюнок</h2>
+    <canvas id="myCanvas" width="1000" height="700"></canvas>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d'); // Отримуємо контекст малювання на canvas
+
+        // Функція для малювання осей координат
+        function drawAxes() {
+            ctx.strokeStyle = 'black'; // Встановлюємо колір ліній
+            ctx.lineWidth = 3; // Встановлюємо товщину ліній
+
+            // Малюємо X-вісь
+            ctx.beginPath();
+            ctx.moveTo(50, 350); // Початкова точка
+            ctx.lineTo(850, 350); // Кінцева точка
+            ctx.stroke();
+
+            // Малюємо Y-вісь
+            ctx.beginPath();
+            ctx.moveTo(350, 50); // Початкова точка
+            ctx.lineTo(350, 650); // Кінцева точка
+            ctx.stroke();
+        }
+
+        // Функція для малювання поділок на осях
+        function drawTicks() {
+            ctx.strokeStyle = 'black'; // Колір поділок
+            ctx.lineWidth = 2; // Товщина поділок
+            ctx.font = '16px Arial'; // Шрифт для підписів
+            ctx.fillStyle = 'black'; // Колір тексту
+
+            // Поділки по X-осі
+            for (let i = 0; i <= 5; i++) {
+                const x = 350 + i * 100; // Обчислюємо позицію по X
+                ctx.beginPath();
+                ctx.moveTo(x, 345); // Початок поділки
+                ctx.lineTo(x, 355); // Кінець поділки
+                ctx.stroke();
+                ctx.fillText(i, x - 5, 370); // Підпис до поділки
+            }
+
+            // Поділки по Y-осі
+            const yValues = [2, 1, 0, -1, -2]; // Значення для Y-поділок
+            yValues.forEach((value, index) => {
+                const y = 150 + index * 100; // Обчислюємо позицію по Y
+                ctx.beginPath();
+                ctx.moveTo(345, y); // Початок поділки
+                ctx.lineTo(355, y); // Кінець поділки
+                ctx.stroke();
+                ctx.fillText(value, 360, y + 5); // Підпис до поділки
+            });
+        }
+
+        // Функція для малювання геометричних фігур
+        function drawShapes() {
+            ctx.fillStyle = 'blue'; // Встановлюємо колір фігур
+
+            // Верхні квадрати
+            ctx.fillRect(350, 150, 100, 100); // Перший квадрат
+            ctx.fillRect(450, 50, 100, 100); // Другий квадрат
+            ctx.fillRect(850, 150, 100, 100); // Третій квадрат
+            ctx.fillRect(750, 50, 100, 100); // Четвертий квадрат
+
+            // Нижні квадрати
+            ctx.fillRect(350, 450, 100, 100); // Перший квадрат
+            ctx.fillRect(850, 450, 100, 100); // Другий квадрат
+
+            // Центральна еліпса
+            ctx.beginPath();
+            ctx.ellipse(650, 250, 200, 100, 0, 0, Math.PI * 2); // Малюємо еліпсу
+            ctx.fill();
+
+            // Два кола
+            ctx.beginPath();
+            ctx.arc(550, 450, 100, 0, Math.PI * 2); // Перше коло
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(750, 450, 100, 0, Math.PI * 2); // Друге коло
+            ctx.fill();
+        }
+
+        // Функція для анімації фігур
+        function animateShapes() {
+            let angle = 0; // Кут обертання
+            let skew = 0; // Величина спотворення
+            let expanding = true; // Змінна для розширення квадрата
+            let squareWidth = 100; // Ширина квадрата
+            let xShift = 0; // Зсув по X
+
+            // Внутрішня функція для виконання анімації
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height); // Очищуємо canvas
+                
+                // Перемальовуємо статичні елементи
+                drawAxes();
+                drawTicks();
+
+                ctx.fillStyle = 'blue'; // Встановлюємо колір фігур
+
+                // Верхні квадрати з трансформаціями
+                ctx.save(); // Зберігаємо стан контексту
+                ctx.translate(400, 200); // Переміщаємо контекст
+                ctx.rotate((Math.PI / 180) * angle); // Обертаємо контекст
+                ctx.fillRect(-50, -50, 100, 100); // Малюємо квадрат
+                ctx.restore(); // Відновлюємо стан контексту
+
+                ctx.save();
+                ctx.translate(500, 100);
+                ctx.transform(1, 0, skew / 20, 1, 0, 0); // Застосовуємо спотворення
+                ctx.fillRect(-50, -50, 100, 100); // Малюємо квадрат
+                ctx.restore();
+
+                ctx.fillRect(850, 150, 100, 100); // Інший квадрат
+                ctx.fillRect(750, 50, 100, 100); // Інший квадрат
+
+                // Нижні квадрати з трансформаціями
+                if (expanding) {
+                    squareWidth += 1; // Збільшуємо ширину квадрата
+                    if (squareWidth > 150) expanding = false; // Якщо ширина більше 150, змінюємо на зменшення
+                } else {
+                    squareWidth -= 1; // Зменшуємо ширину квадрата
+                    if (squareWidth < 100) expanding = true; // Якщо ширина менше 100, змінюємо на збільшення
+                }
+                ctx.fillRect(350, 450, squareWidth, 100); // Малюємо квадрат
+
+                ctx.fillRect(850 + xShift, 450, 100, 100); // Малюємо квадрат з зсувом
+                xShift = xShift < 50 ? xShift + 0.5 : -50; // Змінюємо зсув
+
+                // Центральна еліпса з зміною кольору
+                const gradient = ctx.createLinearGradient(450, 250, 850, 250); // Створюємо градієнт
+                gradient.addColorStop(0, 'blue'); // Перший колір градієнта
+                gradient.addColorStop(1, 'green'); // Другий колір градієнта
+                ctx.fillStyle = gradient; // Встановлюємо градієнт як колір
+                ctx.beginPath();
+                ctx.ellipse(650, 250, 200, 100, 0, 0, Math.PI * 2); // Малюємо еліпсу
+                ctx.fill();
+
+                // Два кола
+                ctx.fillStyle = 'blue'; // Встановлюємо колір фігур
+                ctx.beginPath();
+                ctx.arc(550, 450, 100, 0, Math.PI * 2); // Перше коло
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.arc(750, 450, 100, 0, Math.PI * 2); // Друге коло
+                ctx.fill();
+
+                // Оновлюємо анімацію
+                angle = (angle + 1) % 360; // Оновлюємо кут
+                skew = (skew + 1) % 20; // Оновлюємо спотворення
+
+                requestAnimationFrame(animate); // Запускаємо наступний кадр анімації
+            }
+
+            animate(); // Розпочинаємо анімацію
+        }
+
+        drawAxes(); // Викликаємо функцію для малювання осей
+        drawTicks(); // Викликаємо функцію для малювання поділок
+        drawShapes(); // Викликаємо функцію для малювання фігур
+        animateShapes(); // Запускаємо анімацію фігур
+
+    </script>
+</body>
+</html>
+``
